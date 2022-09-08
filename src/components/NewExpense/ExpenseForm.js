@@ -6,6 +6,7 @@ const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState('');
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
+
   // const [userInput, setUserInput] = useState({
   //   enteredTitle: '',
   //   enteredAmount: '',
@@ -14,13 +15,19 @@ const ExpenseForm = (props) => {
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
+
     // setUserInput({
     //   ...userInput,
     //   enteredTitle: event.target.value,
     // });
+
+    
+    // -------------------------------------------
+    //Best practice to operate on latest state snapshot when we have multiple useState in operation as react schedule state update it doesn't perform them instantly.
     // setUserInput((prevState) => {
     //   return { ...prevState, enteredTitle: event.target.value };
     // });
+    // -------------------------------------------
   };
 
   const amountChangeHandler = (event) => {
